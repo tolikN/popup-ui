@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Налаштування React</title>
+    <title>Skill Settings</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -75,29 +75,29 @@
 </head>
 <body>
     <div class="popup">
-        <h2 id="popup-title">Налаштування</h2>
-        <label for="skill">Назва:</label>
-        <input type="text" id="skill" class="skill-input" placeholder="Введіть новий скіл">
+        <h2 id="popup-title">Skill Settings</h2>
+        <label for="skill">Name:</label>
+        <input type="text" id="skill" class="skill-input" placeholder="Enter or select a skill">
         
-        <label for="level">Рівень:</label>
+        <label for="level">Level:</label>
         <select id="level">
-            <option>Початковий</option>
-            <option>Середній</option>
-            <option>Просунутий</option>
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
         </select>
         
-        <label for="experience">Досвід:</label>
+        <label for="experience">Experience:</label>
         <select id="experience">
-            <option>Менше року</option>
-            <option>1-3 роки</option>
-            <option>3-5 років</option>
-            <option>5-10 років</option>
-            <option>10+ років</option>
+            <option>Less than a year</option>
+            <option>1-3 years</option>
+            <option>3-5 years</option>
+            <option>5-10 years</option>
+            <option>10+ years</option>
         </select>
         
         <div class="buttons">
-            <button class="save">Зберегти</button>
-            <button class="close">Закрити</button>
+            <button class="save">Save</button>
+            <button class="close">Close</button>
         </div>
     </div>
     
@@ -115,13 +115,13 @@
                 source: skills,
                 minLength: 2,
                 select: function(event, ui) {
-                $('#popup-title').text(`Налаштування ${ui.item.value}`);
+                $('#popup-title').text(`Skill Settings${ui.item.value}`);
             }
         });
 
             $('#skill').on('input', function() {
                 const value = $(this).val();
-                $('#popup-title').text(value ? `Налаштування ${value}` : 'Налаштування');
+                $('#popup-title').text(value ? `${value} Skill Settings` : 'Skill Settings');
             });
         });
     </script>
