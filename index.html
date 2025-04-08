@@ -113,7 +113,7 @@
 
             $("#skill").autocomplete({
                 source: skills,
-                minLength: 1,
+                minLength: 2,
                 select: function(event, ui) {
                 $('#popup-title').text(`Налаштування ${ui.item.value}`);
             }
