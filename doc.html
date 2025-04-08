@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Налаштування React</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #FFFDF6; /* світлий фон */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .popup {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            width: 420px;
+            border: 3px solid #27DDE0; /* насичена бірюзова рамка */
+        }
+        .popup h2 {
+            margin-top: 0;
+            color: #00BFC5; /* заголовок бірюзовий */
+            text-align: center;
+        }
+        .popup label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: 500;
+        }
+        .popup select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #4DD0E1;
+            border-radius: 4px;
+            background: #E5FAFB;
+        }
+
+        .popup input{
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #4DD0E1;
+            border-radius: 4px;
+            background: #E5FAFB;
+        }
+        .popup .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .popup .save, .popup .close {
+            padding: 10px 30px;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+        }
+        .popup .save {
+            background: #00ACC1;
+            color: white;
+        }
+        .popup .close {
+            background: #F44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup">
+        <h2 id="popup-title">Налаштування</h2>
+        <label for="skill">Назва:</label>
+        <input type="text" id="skill" class="skill-input" placeholder="Введіть новий скіл">
+        
+        <label for="level">Рівень:</label>
+        <select id="level">
+            <option>Початковий</option>
+            <option>Середній</option>
+            <option>Просунутий</option>
+        </select>
+        
+        <label for="experience">Досвід:</label>
+        <select id="experience">
+            <option>Менше року</option>
+            <option>1-3 роки</option>
+            <option>3-5 років</option>
+            <option>5-10 років</option>
+            <option>10+ років</option>
+        </select>
+        
+        <div class="buttons">
+            <button class="save">Зберегти</button>
+            <button class="close">Закрити</button>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            let skills = [
+                "Java", "Spring Boot", "Node.js", 
+                "React", "Vue.js", "Angular", 
+                "Jenkins", "GitHub Actions", "GitLab CI", 
+                "AWS", "Azure", "GCP", 
+                "Communication", "Leadership", "Teamwork"
+            ];
+
+            $("#skill").autocomplete({
+                source: skills,
+                minLength: 1
+            });
+
+            $('#skill').on('input', function() {
+                const value = $(this).val();
+                $('#popup-title').text(value ? `Налаштування ${value}` : 'Налаштування');
+            });
+        });
+    </script>
+</body>
+</html>
