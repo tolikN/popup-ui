@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skill Settings</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
@@ -23,7 +24,8 @@
             border-radius: 16px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
             width: 420px;
-            border: 3px solid #27DDE0; /* насичена бірюзова рамка */
+            border: 3px solid #00c2c2; /* насичена бірюзова рамка */
+            position: relative; /* To position the delete icon */
         }
         .popup h2 {
             margin-top: 0;
@@ -44,7 +46,7 @@
             background: #E5FAFB;
         }
 
-        .popup input{
+        .popup input {
             width: 95%;
             padding: 10px;
             margin-bottom: 10px;
@@ -52,6 +54,7 @@
             border-radius: 4px;
             background: #E5FAFB;
         }
+        
         .popup .buttons {
             display: flex;
             justify-content: center;
@@ -60,21 +63,30 @@
         .popup .save, .popup .close {
             padding: 10px 30px;
             border: none;
-            border-radius: 100px;
+            border-radius: 8px;
             cursor: pointer;
         }
         .popup .save {
-            background: #00ACC1;
+            background: #00c2c2;
             color: white;
         }
         .popup .close {
             background: #F44336;
             color: white;
         }
+        .popup .delete-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: #F44336;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="popup">
+        <i class="fas fa-trash delete-icon"></i> <!-- Trash can icon -->
         <h2 id="popup-title">Skill Settings</h2>
         <label for="skill">Name:</label>
         <input type="text" id="skill" class="skill-input" placeholder="Enter or select a skill">
@@ -115,13 +127,17 @@
                 source: skills,
                 minLength: 2,
                 select: function(event, ui) {
-                $('#popup-title').text(`Skill Settings${ui.item.value}`);
+                $('#popup-title').text(`${ui.item.value} Skill Settings`);
             }
         });
 
             $('#skill').on('input', function() {
                 const value = $(this).val();
                 $('#popup-title').text(value ? `${value} Skill Settings` : 'Skill Settings');
+            });
+
+            $('.delete-icon').on('click', function() {
+                alert("File deleted");
             });
         });
     </script>
