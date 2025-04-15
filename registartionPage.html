@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #F9FAFB;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+      color: #4B5563;
+    }
+
+    .container {
+      width: 900px;
+      background: #F9FAFB;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 0.5rem;
+      border: 1px solid rgba(209, 213, 219, 0.5);
+    }
+
+    .form-field input::placeholder {
+      color: #9CA3AF;
+    }
+
+    .section {
+      margin-bottom: 30px;
+      border: 1px solid rgba(209, 213, 219, 0.5);
+      border-radius: 0.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #00c2c2;
+      color: white;
+      padding: 9px;
+      font-size: 16px;
+      font-weight: 450;
+      cursor: pointer;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 2px;
+      gap: 2px;
+    }
+
+    .form-field {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+    }
+
+    .form-field input {
+      padding: 9px;
+      border: 1px solid rgba(209, 213, 219, 0.5);
+      border-radius: 0.5rem;
+      margin-top: 5px;
+    }
+
+    .form-field input:focus {
+      border-color: #00c2c2;
+      outline: none;
+    }
+
+    .form-field-full {
+      flex: 1 1 95%;
+    }
+
+    .btn-next {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 30px;
+      background-color: #00c2c2;
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-next:hover {
+      background-color: #00a9a9;
+    }
+
+    .accordion-toggle {
+      font-size: 20px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .accordion-content {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Section 1 -->
+    <div class="section">
+      <div class="section-header" onclick="toggleAccordion(this)">
+        <div>Registration Address</div>
+        <button class="accordion-toggle">−</button>
+      </div>
+      <div class="accordion-content">
+        <div class="form-group">
+          <div class="form-field">
+            <label>Country</label>
+            <input type="text" placeholder="Country">
+          </div>
+          <div class="form-field">
+            <label>Region/State</label>
+            <input type="text" placeholder="Region or State">
+          </div>
+          <div class="form-field">
+            <label>City</label>
+            <input type="text" placeholder="City">
+          </div>
+          <div class="form-field">
+            <label>Street</label>
+            <input type="text" placeholder="Street">
+          </div>
+          <div class="form-field form-field-full">
+            <label>Building/Apartment</label>
+            <input type="text" placeholder="Building or Apartment">
+          </div>
+          <div class="form-field form-field-full">
+            <label>Location</label>
+            <input type="text" placeholder="Location">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section">
+      <div class="section-header" onclick="toggleAccordion(this)">
+        <div>Tax and Passport Details</div>
+        <button class="accordion-toggle">−</button>
+      </div>
+      <div class="accordion-content">
+        <div class="form-group">
+          <div class="form-field form-field-full">
+            <label>National Identity Document (DNI)</label>
+            <input type="text" placeholder="National Identity Document (DNI)">
+          </div>
+          <div class="form-field form-field-full">
+            <label>Spanish Passport</label>
+            <input type="text" placeholder="Spanish Passport">
+          </div>
+          <div class="form-field form-field-full">
+            <label>Foreign Identity Number (NIE)</label>
+            <input type="text" placeholder="Foreign Identity Number (NIE)">
+          </div>
+          <div class="form-field form-field-full">
+            <label>TIN*</label>
+            <input type="text" placeholder="TIN">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-next">Next</button>
+  </div>
+
+  <script>
+    function toggleAccordion(header) {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('.accordion-toggle');
+      if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+        icon.textContent = '−';
+      } else {
+        content.style.display = 'none';
+        icon.textContent = '+';
+      }
+    }
+  </script>
+</body>
+</html>
