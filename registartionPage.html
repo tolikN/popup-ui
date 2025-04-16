@@ -79,21 +79,39 @@
       flex: 1 1 95%;
     }
 
-    .btn-next {
-      display: block;
-      margin: 0 auto;
-      padding: 10px 30px;
-      background-color: #00c2c2;
-      color: white;
-      border: none;
-      border-radius: 0.375rem;
-      font-size: 16px;
-      cursor: pointer;
-    }
+    .button-row {
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  margin-top: 20px;
+}
 
-    .btn-next:hover {
-      background-color: #00a9a9;
-    }
+.btn-back,
+.btn-next {
+  padding: 10px 30px;
+  font-size: 16px;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-back {
+  background-color: #9CA3AF;
+  color: white;
+}
+
+.btn-back:hover {
+  background-color: #4B5563
+}
+
+.btn-next {
+  background-color: #00c2c2;
+  color: white;
+}
+
+.btn-next:hover {
+  background-color: #00a9a9;
+}
 
     .accordion-toggle {
       font-size: 20px;
@@ -119,27 +137,27 @@
       <div class="accordion-content">
         <div class="form-group">
           <div class="form-field">
-            <label>Country</label>
+            <label>Country<span style="color: red"> *</span></label>
             <input type="text" placeholder="Country">
           </div>
           <div class="form-field">
-            <label>Region/State</label>
+            <label>Region/State<span style="color: red"> *</span></label>
             <input type="text" placeholder="Region or State">
           </div>
           <div class="form-field">
-            <label>City</label>
+            <label>City<span style="color: red"> *</span></label>
             <input type="text" placeholder="City">
           </div>
           <div class="form-field">
-            <label>Street</label>
+            <label>Street<span style="color: red"> *</span></label>
             <input type="text" placeholder="Street">
           </div>
           <div class="form-field form-field-full">
-            <label>Building/Apartment</label>
+            <label>Building/Apartment<span style="color: red"> *</span></label>
             <input type="text" placeholder="Building or Apartment">
           </div>
           <div class="form-field form-field-full">
-            <label>Location</label>
+            <label>Location<span style="color: red"> *</span></label>
             <input type="text" placeholder="Location">
           </div>
         </div>
@@ -155,26 +173,29 @@
       <div class="accordion-content">
         <div class="form-group">
           <div class="form-field form-field-full">
-            <label>National Identity Document (DNI)</label>
+            <label>National Identity Document (DNI)<span style="color: red"> *</span></label>
             <input type="text" placeholder="National Identity Document (DNI)">
           </div>
           <div class="form-field form-field-full">
-            <label>Spanish Passport</label>
+            <label>Spanish Passport<span style="color: red"> *</span></label>
             <input type="text" placeholder="Spanish Passport">
           </div>
           <div class="form-field form-field-full">
-            <label>Foreign Identity Number (NIE)</label>
+            <label>Foreign Identity Number (NIE)<span style="color: red"> *</span></label>
             <input type="text" placeholder="Foreign Identity Number (NIE)">
           </div>
           <div class="form-field form-field-full">
-            <label>TIN*</label>
+            <label>TIN<span style="color: red"> *</span></label>
             <input type="text" placeholder="TIN">
           </div>
         </div>
       </div>
     </div>
 
-    <button class="btn-next">Next</button>
+    <div class="button-row">
+      <button class="btn-back">Back</button>
+      <button class="btn-next">Next</button>
+    </div>
   </div>
 
   <script>
