@@ -273,6 +273,28 @@
   align-items: flex-start;
   margin-bottom: 5px;
 }
+.btn-back,
+.btn-next {
+  padding: 10px 30px;
+  font-size: 16px;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  border: none;
+  background-color: #00c2c2;
+  color: white;
+}
+
+.btn-back:hover,
+.btn-next:hover {
+  background-color: #00a9a9
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 20px;
+}
 
   </style>
 </head>
@@ -332,13 +354,175 @@
             <div class="form-field form-field-full">
                 <label>Comment</label>
                 <textarea rows="4" placeholder="If you are still studying, please specify your institution, course, and specialization here. You may also use this space to provide any additional education-related details."></textarea>
-              </div>
+            </div>
           </div>
         </div>
         <div class="add-edu-wrapper">
           <button class="add-education-btn">+ Add education</button>
         </div>
       </div>
+    </div>
+    <!-- Новий блок Certifications -->
+    <div class="section">
+      <div class="section-header">
+        <div>Certifications</div>
+        <button class="accordion-toggle" onclick="toggleAccordion(this)">−</button>
+      </div>
+      <div class="accordion-content">
+        <div id="certifications-wrapper">
+          <div class="form-group">
+            <div class="form-field">
+              <label>Certificate Name</label>
+              <input type="text" placeholder="Please enter Certificate Name">
+            </div>
+            <div class="form-field">
+              <label>Organisation providing certifications</label>
+              <input type="text" placeholder="Please enter Organisation providing certifications">
+            </div>
+            <div class="form-field">
+              <label>Issue Date</label>
+              <input type="date">
+            </div>
+            <div class="file-upload">
+              <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+              <div class="diploma-header">
+                <p style="margin: 0;">Certificate</p>
+              </div>
+              <small class="file-hint">PDF, file size no more than 10MB</small>
+              <br>
+              <button>Select File</button>
+            </div>
+          </div>
+        </div>
+        <div class="add-edu-wrapper">
+          <button class="add-education-btn" onclick="addCertification()">+ Add certificate</button>
+        </div>
+      </div>
+    </div>
+    <!-- Новий блок Languages -->
+    <div class="section">
+      <div class="section-header">
+        <div>Languages</div>
+        <button class="accordion-toggle" onclick="toggleAccordion(this)">−</button>
+      </div>
+      <div class="accordion-content">
+        <div id="languages-wrapper">
+          <div class="form-group">
+            <div class="form-field">
+              <label>Language</label>
+              <select>
+                <option>Please select Language</option>
+                <option>English</option>
+                <option>Spanish</option>
+                <option>Ukrainian</option>
+                <option>German</option>
+                <option>French</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Level</label>
+              <select>
+                <option>Please select your level</option>
+                <option>Elementary</option>
+                <option>Pre-Intermediate</option>
+                <option>Intermediate</option>
+                <option>Upper-Intermediate</option>
+                <option>Advanced</option>
+                <option>Proficient</option>
+                <option>Native</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="add-edu-wrapper">
+          <button class="add-education-btn" onclick="addLanguage()">+ Add another language</button>
+        </div>
+      </div>
+    </div>
+    <!-- Новий блок Professional experiences -->
+    <div class="section">
+      <div class="section-header">
+        <div>Professional experiences</div>
+        <button class="accordion-toggle" onclick="toggleAccordion(this)">−</button>
+      </div>
+      <div class="accordion-content">
+        <div id="profExpirience-wrapper">
+          <div class="form-group">
+            <p>Start with your most recent position and work backward.</p><br>
+            <div class="form-field">
+              <label>Select Domain</label>
+              <select>
+                <option>Please select Domain</option>
+                <option>Frontend</option>
+                <option>Backend</option>
+                <option>Cloud</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Job Title</label>
+              <input type="text" placeholder="Please enter your job title">
+            </div>
+            <div class="form-field form-field-full">
+              <label>Employer</label>
+              <input type="text" placeholder="Please enter Employer name">
+            </div>
+            <div class="form-field">
+              <label>Start Date</label>
+              <input type="date">
+            </div>
+            <div class="form-field">
+              <label>End Date</label>
+              <input type="date">
+            </div>
+            <div class="form-field form-field-full">
+              <label>Work summary</label>
+              <textarea rows="4" placeholder="Please enter work summary"></textarea>
+            </div>
+            <div class="form-field form-field-full">
+              <label>Skills and Technologies Used in Project</label>
+              <input type="text" placeholder="Add skill or tech">
+            </div>
+          </div>
+        </div>
+        <div class="add-edu-wrapper">
+          <button class="add-education-btn" onclick="addProfExpirience()">+ Add work expirience</button>
+        </div>
+      </div>
+    </div>
+    <!-- Новий блок Cover Letter -->
+    <div class="section">
+      <div class="section-header">
+        <div>Cover Letter</div>
+        <button class="accordion-toggle" onclick="toggleAccordion(this)">−</button>
+      </div>
+      <div class="accordion-content">
+        <div id="coverLetter-wrapper">
+          <div class="form-group">
+            <div class="form-field form-field-full">
+              <textarea rows="4" placeholder="Write something about yourself (up to 1500 characters)"></textarea>
+            </div>
+            <div class="file-upload">
+                <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                <div class="diploma-header">
+                  <p style="margin: 0;">Cover Letter</p>
+                  <div class="info-iconAdd" onclick="toggleTooltip(event, 'tooltip5')">i
+                    <div class="tooltip" id="tooltip5">
+                      <div class="tooltip-arrow"></div>
+                      Briefly tell us about yourself or upload a file with a cover letter. This will help us better understand your experience and motivation.
+                    </div>
+                  </div>
+                </div>
+                <small class="file-hint">PDF, file size no more than 10MB</small>
+                <br>
+                <button>Select File</button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button-row">
+      <button class="btn-back">Back</button>
+      <button class="btn-next">Next</button>
     </div>
   </div>
 
@@ -429,6 +613,128 @@
         content.style.display = 'none';
         button.textContent = '+';
       }
+    }
+
+    function addCertification() {
+      const wrapper = document.getElementById('certifications-wrapper');
+      const block = document.createElement('div');
+      block.className = 'education-block';
+      block.innerHTML = `
+        <div class="form-group">
+          <div class="form-field">
+              <label>Certificate Name</label>
+              <input type="text" placeholder="Please enter Certificate Name">
+            </div>
+            <div class="form-field">
+              <label>Organisation providing certifications</label>
+              <input type="text" placeholder="Please enter Organisation providing certifications">
+            </div>
+          <div class="form-field">
+            <label>Issue Date</label>
+            <input type="date">
+          </div>
+          <div class="file-upload">
+            <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+            <div class="diploma-header">
+              <p style="margin: 0;">Certificate</p>
+            </div>
+            <small class="file-hint">PDF, file size no more than 10MB</small>
+            <br>
+            <button>Select File</button>
+          </div>
+        </div>
+        <div class="remove-btn-wrapper">
+          <button class="remove-education-btn" onclick="removeEducationBlock(this)">
+            <i class="fa-solid fa-trash"></i> Remove
+          </button>
+        </div>`;
+      wrapper.appendChild(block);
+    }
+
+    function addLanguage() {
+      const wrapper = document.getElementById('languages-wrapper');
+      const block = document.createElement('div');
+      block.className = 'education-block';
+      block.innerHTML = `
+        <div class="form-group">
+            <div class="form-field">
+              <label>Language</label>
+              <select>
+                <option>Please select Language</option>
+                <option>English</option>
+                <option>Spanish</option>
+                <option>Ukrainian</option>
+                <option>German</option>
+                <option>French</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Level</label>
+              <select>
+                <option>Please select your level</option>
+                <option>Elementary</option>
+                <option>Pre-Intermediate</option>
+                <option>Intermediate</option>
+                <option>Upper-Intermediate</option>
+                <option>Advanced</option>
+                <option>Proficient</option>
+                <option>Native</option>
+              </select>
+            </div>
+          </div>
+        <div class="remove-btn-wrapper">
+          <button class="remove-education-btn" onclick="removeEducationBlock(this)">
+            <i class="fa-solid fa-trash"></i> Remove
+          </button>
+        </div>`;
+      wrapper.appendChild(block);
+    }
+
+    function addProfExpirience() {
+      const wrapper = document.getElementById('profExpirience-wrapper');
+      const block = document.createElement('div');
+      block.className = 'education-block';
+      block.innerHTML = `
+        <div class="form-group">
+            <div class="form-field">
+              <label>Select Domain</label>
+              <select>
+                <option>Please select Domain</option>
+                <option>Frontend</option>
+                <option>Backend</option>
+                <option>Cloud</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Job Title</label>
+              <input type="text" placeholder="Please enter your job title">
+            </div>
+            <div class="form-field form-field-full">
+              <label>Employer</label>
+              <input type="text" placeholder="Please enter Employer name">
+            </div>
+            <div class="form-field">
+              <label>Start Date</label>
+              <input type="date">
+            </div>
+            <div class="form-field">
+              <label>End Date</label>
+              <input type="date">
+            </div>
+            <div class="form-field form-field-full">
+              <label>Work summary</label>
+              <textarea rows="4" placeholder="Please enter work summary"></textarea>
+            </div>
+            <div class="form-field form-field-full">
+              <label>Skills and Technologies Used in Project</label>
+              <input type="text" placeholder="Add skill or tech">
+            </div>
+        <div class="remove-btn-wrapper">
+          <button class="remove-education-btn" onclick="removeEducationBlock(this)">
+            <i class="fa-solid fa-trash"></i> Remove
+          </button>
+        </div>`;
+      wrapper.appendChild(block);
     }
   </script>
 
