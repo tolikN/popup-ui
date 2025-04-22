@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Settings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #F9FAFB; /* світло-сірий фон */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 1rem;
+      color: #4B5563;
+      
+    }
+
+    .popup {
+      background: #ffffff; /* фон форми */
+      padding: 2rem; /* p-4 */
+      border-radius: 1rem; /* rounded-2xl */
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+      width: 650px;
+      border: 5px solid #00c2c2;
+      position: relative;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      color: #00c2c2;
+      text-align: center;
+      font-size: 1.125rem; /* text-md */
+      font-weight: 700; /* font-bold */
+    }
+
+    .form-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      padding: 15px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-field-full {
+      grid-column: span 2;
+    }
+
+    .form-field label {
+      margin-bottom: 4px;
+    }
+
+    .form-field input,
+    .form-field select {
+      padding: 9px;
+      border: 1px solid rgba(209, 213, 219, 0.5);
+      border-radius: 0.5rem;
+      color: #9CA3AF;
+    }
+
+    .form-field input::placeholder {
+      color: #9CA3AF;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus {
+      border-color: #00c2c2;
+      outline: none;
+    }
+
+    .popup .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .popup .save,
+    .popup .close {
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 0.375rem; /* rounded-md */
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .popup .save {
+      background: #00c2c2;
+      color: #ffffff;
+    }
+
+    .popup .save:hover {
+      background: #00a9a9;
+    }
+
+    .popup .close {
+      background: #9CA3AF;
+      color: #ffffff;
+    }
+
+    .popup .close:hover {
+      background: #6B7280;
+    }
+
+    .popup .delete-icon {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 1.125rem;
+      color: #9CA3AF;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .popup .delete-icon:hover {
+      color: #4B5563;
+    }
+
+    input[type="date"]::-webkit-datetime-edit {
+      color: transparent;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      transform: scale(1.6);
+      margin-left: -5px;
+      cursor: pointer;
+      filter: invert(30%) sepia(11%) saturate(372%) hue-rotate(174deg) brightness(95%) contrast(86%);
+    }
+
+    .form-field textarea {
+  padding: 9px;
+  border: 1px solid rgba(209, 213, 219, 0.5);
+  border-radius: 0.5rem;
+  resize: vertical;
+  color: #4B5563;
+}
+
+.form-field textarea::placeholder {
+    font-family: 'Roboto', sans-serif;
+  color: #9CA3AF;
+}
+  </style>
+</head>
+<body>
+  <div class="popup">
+    <i class="fas fa-xmark delete-icon" title="Закрити"></i>
+    <h2 id="popup-title">Add a new person to the ban registry</h2>
+
+    <div class="form-group">
+    <div class="form-field">
+      <label>Last name</label>
+      <input type="text" placeholder="Last name">
+    </div>
+    <div class="form-field">
+      <label>First name</label>
+      <input type="text" placeholder="First name">
+    </div>
+    <div class="form-field">
+      <label>Date of birth</label>
+      <input type="text" placeholder="Date of birth">
+    </div>
+    <div class="form-field">
+      <label>Tax ID</label>
+      <input type="text" placeholder="Tax ID">
+    </div>
+    <div class="form-field">
+      <label>Email</label>
+      <input type="text" placeholder="Email">
+    </div>
+    <div class="form-field">
+      <label>Phone</label>
+      <input type="text" placeholder="Phone">
+    </div>
+    <div class="form-field">
+      <label>Telegram</label>
+      <input type="text" placeholder="Telegram">
+    </div>
+    <div class="form-field">
+      <label>Ban date</label>
+      <input type="date" placeholder="Ban date">
+    </div>
+    <div class="form-field form-field-full">
+      <label>Blocked by</label>
+      <input type="text" placeholder="Blocked by">
+    </div>
+  </div>
+  <div class="form-field form-field-full">
+    <label>Comment / details</label>
+    <textarea rows="4" placeholder="Comment / details"></textarea>
+  </div>
+    <div class="buttons">
+      <button class="save">Save</button>
+    </div>
+  </div>
+</body>
+</html>
