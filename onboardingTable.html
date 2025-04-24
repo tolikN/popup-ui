@@ -9,9 +9,10 @@
       font-family: 'Roboto', sans-serif;
       background-color: #F9FAFB;
       margin: 210px;
+      color: #4B5563;
     }
     .container {
-      background: white;
+      background: #F9FAFB;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -28,11 +29,12 @@
       margin-bottom: 16px;
     }
     .search-input {
-      width: 50%;
+      width: 20%;
       padding: 10px;
       border: 1px solid rgba(209, 213, 219, 0.5);
       border-radius: 0.5rem;
     }
+
     .button {
       padding: 12px 25px;
       background-color: #00c2c2;
@@ -50,7 +52,7 @@
     }
     .filter-label {
       font-size: 14px;
-      color: #374151;
+      color: #4B5563;
       margin-right: 2px;
     }
     table {
@@ -60,10 +62,10 @@
     th, td {
       padding: 12px;
       text-align: left;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid rgba(209, 213, 219, 0.5);
     }
     th {
-      background-color: #f0f0f0;
+      background-color: #d0d5da;
     }
     .badge {
       display: inline-flex;
@@ -104,6 +106,57 @@
     input[type="date"]::-webkit-datetime-edit {
       color: transparent;
     }
+
+    .period-picker {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(209, 213, 219, 0.5);
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  height: 38px;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  background-color: #FFFFFF;
+  height: 100%;
+  width: 200px;
+}
+
+.calendar-icon {
+  color: #9CA3AF;
+  font-size: 30px;
+
+}
+
+.period-text {
+  color: #4B5563;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.arrows {
+  display: flex;
+  height: 100%;
+}
+
+.arrow-btn {
+  width: 32px;
+  height: 100%;
+  border: none;
+  background-color: #FFFFFF;
+  border-left: 1px solid rgba(209, 213, 219, 0.5);
+  font-size: 16px;
+  color: #9CA3AF;
+  cursor: pointer;
+}
+
   </style>
 </head>
 <body>
@@ -122,8 +175,26 @@
       <option value="rejected">Rejected</option>
       <option value="verified">Verification</option>
     </select>
-    <label class="filter-label" for="from-date">From:</label><input type="date" id="from-date">
-    <label class="filter-label" for="till-date">Till:</label><input type="date" id="till-date">
+    <div class="period-picker">
+      <div class="left-section">
+        <span class="calendar-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="none" viewBox="0 0 24 24" stroke="#94A3B8" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 2v2m8-2v2M3 8h18M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/>
+            <circle cx="7" cy="11" r="1"/>
+            <circle cx="12" cy="11" r="1"/>
+            <circle cx="17" cy="11" r="1"/>
+            <circle cx="7" cy="15" r="1"/>
+            <circle cx="12" cy="15" r="1"/>
+            <circle cx="17" cy="15" r="1"/>
+          </svg>          
+        </span>
+        <span class="period-text">This week</span>
+      </div>
+      <div class="arrows">
+        <button class="arrow-btn">&lt;</button>
+        <button class="arrow-btn">&gt;</button>
+      </div>
+    </div>
   </div>
 
   <table>

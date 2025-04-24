@@ -12,7 +12,7 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #F9FAFB; /* світло-сірий фон */
+      background-color: #F9FAFB;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -22,9 +22,9 @@
     }
 
     .popup {
-      background: #ffffff; /* фон форми */
-      padding: 2rem; /* p-4 */
-      border-radius: 1rem; /* rounded-2xl */
+      background: #F9FAFB;
+      padding: 2rem;
+      border-radius: 1rem;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
       width: 420px;
       border: 5px solid #00c2c2;
@@ -36,24 +36,24 @@
       margin-bottom: 1.5rem;
       color: #00c2c2;
       text-align: center;
-      font-size: 1.125rem; /* text-md */
-      font-weight: 700; /* font-bold */
+      font-size: 1.125rem;
+      font-weight: 700;
     }
 
     .popup label {
       display: block;
       margin-bottom: 0.25rem;
-      font-size: 0.875rem; /* text-sm */
+      font-size: 0.875rem;
       color: #4B5563;
       font-weight: 500;
     }
 
     .popup select {
       width: 100%;
-      padding: 0.5rem; /* p-2 */
+      padding: 0.5rem;
       margin-bottom: 1rem;
-      border: 1px solid rgba(209, 213, 219, 0.5); /* border-gray-300 з прозорістю */
-      border-radius: 0.5rem; /* rounded-lg */
+      border: 1px solid rgba(209, 213, 219, 0.5);
+      border-radius: 0.5rem;
       background: #ffffff;
       font-size: 0.875rem;
       color: #4B5563;
@@ -61,10 +61,10 @@
 
     .popup input {
       width: 96%;
-      padding: 0.5rem; /* p-2 */
+      padding: 0.5rem;
       margin-bottom: 1rem;
-      border: 1px solid rgba(209, 213, 219, 0.5); /* border-gray-300 з прозорістю */
-      border-radius: 0.5rem; /* rounded-lg */
+      border: 1px solid rgba(209, 213, 219, 0.5);
+      border-radius: 0.5rem;
       background: #ffffff;
       font-size: 0.875rem;
       color: #4B5563;
@@ -79,13 +79,12 @@
     .popup input:focus {
       outline: none;
       border-color: #00c2c2;
-      box-shadow: 0 0 0 2px rgba(0, 194, 194, 0.3); /* фокус */
+      box-shadow: 0 0 0 2px rgba(0, 194, 194, 0.3);
     }
 
     .popup .buttons {
       display: flex;
-      justify-content: center;
-      gap: 0.75rem;
+      justify-content: space-between;
       margin-top: 1.5rem;
     }
 
@@ -93,7 +92,7 @@
     .popup .close {
       padding: 0.5rem 1.5rem;
       border: none;
-      border-radius: 0.375rem; /* rounded-md */
+      border-radius: 0.375rem;
       cursor: pointer;
       font-size: 0.875rem;
       font-weight: 500;
@@ -104,6 +103,7 @@
     .popup .save {
       background: #00c2c2;
       color: #ffffff;
+      margin-left: auto;
     }
 
     .popup .save:hover {
@@ -111,12 +111,14 @@
     }
 
     .popup .close {
-      background: #9CA3AF;
-      color: #ffffff;
+      background: transparent;
+      color: #9CA3AF;
+      padding: 0.5rem;
+      font-size: 1rem;
     }
 
     .popup .close:hover {
-      background: #6B7280;
+      color: #4B5563;
     }
 
     .popup .delete-icon {
@@ -160,8 +162,8 @@
     </select>
 
     <div class="buttons">
+      <button class="close"><i class="fas fa-trash"></i></button>
       <button class="save">Save</button>
-      <button class="close">Delete</button>
     </div>
   </div>
 
