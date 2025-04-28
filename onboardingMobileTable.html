@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Onboarding Request - Mobile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #F9FAFB;
+      margin: 20px;
+      color: #4B5563;
+    }
+    .container {
+      background: #F9FAFB;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      overflow-x: auto;
+    }
+    h2 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+    .top-row, .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .search-input {
+      flex: 1 1 30%;
+      padding: 10px;
+      border: 1px solid rgba(209, 213, 219, 0.5);
+      border-radius: 0.5rem;
+      background: white;
+    }
+    .button, select, .period-picker {
+      flex: 1 1 100%;
+      padding: 10px;
+      border: 1px solid rgba(209, 213, 219, 0.5);
+      border-radius: 0.5rem;
+      background: white;
+    }
+    .button {
+      background-color: #00c2c2;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 800px;
+      font-size: 0.9rem;
+    }
+    th, td {
+      padding: 8px;
+      border-bottom: 1px solid rgba(209, 213, 219, 0.5);
+      text-align: left;
+    }
+    th {
+      background-color: #d0d5da;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    .green { background-color: #e6f4ea; color: #1b5e20; }
+    .red { background-color: #fcebea; color: #b71c1c; }
+    .blue { background-color: #e3f2fd; color: #0d47a1; }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: currentColor;
+    }
+    .period-picker {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+    }
+    .calendar-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+    .arrow-btn {
+      border: none;
+      background: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #9CA3AF;
+    }
+    @media(min-width: 768px) {
+      .top-row, .filter-row {
+        flex-wrap: nowrap;
+      }
+      .search-input {
+        flex: 1 1 30%;
+      }
+      .button {
+        flex: 0 0 auto;
+      }
+      select, .period-picker {
+        flex: 0 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Onboarding Request</h2>
+
+  <div class="top-row">
+    <input type="text" class="search-input" placeholder="Search...">
+    <button class="button">+ Create</button>
+  </div>
+
+  <div class="filter-row">
+    <select>
+      <option>All statuses</option>
+      <option>Sent</option>
+      <option>Rejected</option>
+      <option>Verification</option>
+    </select>
+    <div class="period-picker">
+      <span class="calendar-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 2v2m8-2v2M3 8h18M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/>
+        </svg>
+      </span>
+      <span>This week</span>
+      <button class="arrow-btn">&lt;</button>
+      <button class="arrow-btn">&gt;</button>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Label</th>
+        <th>Date</th>
+        <th>Initiator</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Anatoliy Petrov</td>
+        <td>tolik@gmail.com</td>
+        <td><span class="badge green"><span class="dot"></span>Sent</span></td>
+        <td>Active</td>
+        <td>23.10.2025</td>
+        <td>HR Department</td>
+        <td>🗑️</td>
+      </tr>
+      <tr>
+        <td>Tetyana Bublikova</td>
+        <td>toster@icloud.com</td>
+        <td><span class="badge red"><span class="dot"></span>Rejected</span></td>
+        <td>Archive</td>
+        <td>11.08.2021</td>
+        <td>HR Department</td>
+        <td>🗑️</td>
+      </tr>
+      <tr>
+        <td>Mike Vasovski</td>
+        <td>monstr@gmail.com</td>
+        <td><span class="badge blue"><span class="dot"></span>Verification</span></td>
+        <td>Active</td>
+        <td>11.08.2024</td>
+        <td>HR Department</td>
+        <td>🗑️</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
